@@ -33,6 +33,10 @@ const countingSort = (array) => {
     return array;
   }
   const max = Math.max(...array);
+  const isLessThanZero = element => element < 0;
+  if (max < 1 || isNaN(max) || array.some(isLessThanZero)) {
+    return [];
+  }
   const equal = countKeysEqual(array, max);
   const less = countKeysLess(equal, max);
   const result = rearrange(array, less);
