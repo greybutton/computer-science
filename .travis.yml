@@ -5,4 +5,3 @@ node_js:
 after_success:
   - npm test -- --coverage
   - node_modules/.bin/codecov
-  - node_modules/.bin/codacy-coverage
