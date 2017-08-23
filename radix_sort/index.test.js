@@ -54,29 +54,4 @@ describe('radix sort', () => {
     const expected = resultList.wordsRepeat;
     expect(received).toEqual(expected);
   });
-  // const testList = [
-  //   ['BAR', 'BOX', 'BIG', 'ROW', 'EAR', 'RUG', 'COW', 'TAR', 'TAN'],
-  //   ['BAR', 'BOX', 'BIG', 'ROW', 'EAR', 'RUG', 'COW', 'TAR', 'TA'],
-  //   ['BAR', 'BOX', 'BIG', 'ROW', 'EAR', 'RUG', 'COW', 'TAR', 'TA', 'T'],
-  // ];
-  // const resultList = [
-  //   ['BAR', 'BIG', 'BOX', 'COW', 'EAR', 'ROW', 'RUG', 'TAN', 'TAR'],
-  //   ['BAR', 'BIG', 'BOX', 'COW', 'EAR', 'ROW', 'RUG', 'TAR', 'TA'],
-  //   ['BAR', 'BIG', 'BOX', 'COW', 'EAR', 'ROW', 'RUG', 'TAR', 'TA', 'T'],
-  // ];
-  // test(`[${testList[0]}] should be [${resultList[0]}]`, () => {
-  //   const received = radixSort(testList[0], 3);
-  //   const expected = resultList[0];
-  //   expect(received).toEqual(expected);
-  // });
-  // test(`[${testList[1]}] should be [${resultList[1]}]`, () => {
-  //   const received = radixSort(testList[1], 3);
-  //   const expected = resultList[1];
-  //   expect(received).toEqual(expected);
-  // });
-  // test(`[${testList[2]}] should be [${resultList[2]}]`, () => {
-  //   const received = radixSort(testList[2], 3);
-  //   const expected = resultList[2];
-  //   expect(received).toEqual(expected);
-  // });
 });
