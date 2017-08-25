@@ -6,3 +6,20 @@
 [![Dependency Status](https://gemnasium.com/badges/github.com/greybutton/computer-science.svg)](https://gemnasium.com/github.com/greybutton/computer-science)
 
 My implementation algorithms and data structures
+
+### Docker development
+
+Install
+
+`docker build -t <image-name:tag> .`
+
+`docker run --rm -it -v "$PWD":/code <image-name:tag> make install`
+
+Test
+
+`docker run --rm -it -v "$PWD":/code <image-name:tag> make test`
+
+`docker run --rm -it -v "$PWD":/code <image-name:tag> make test-coverage`
+
+`docker run --rm -it -v "$PWD":/code <image-name:tag> make test-watch`
+
