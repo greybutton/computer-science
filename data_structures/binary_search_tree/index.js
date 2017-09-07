@@ -46,6 +46,24 @@ class BinarySearchTree {
     }
     return node[child];
   }
+
+  search(node, key) {
+    if (!node) {
+      if (this.root) {
+        node = this.root;
+      } else {
+        return false;
+      }
+    }
+    if (key === node.key) {
+      return node;
+    }
+    if (key > node.key) {
+      return node.right && this.search(node.right, key);
+    } else {
+      return node.left && this.search(node.left, key);
+    }
+  }
 }
 
 export default BinarySearchTree;
