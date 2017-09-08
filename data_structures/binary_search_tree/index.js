@@ -64,6 +64,47 @@ class BinarySearchTree {
       return node.left && this.search(node.left, key);
     }
   }
+
+  min(node) {
+    if (!node) {
+      if (this.root) {
+        node = this.root;
+      } else {
+        return false;
+      }
+    }
+    if (node.left === null) {
+      return node;
+    }
+    return this.min(node.left);
+  }
+
+  max(node) {
+    if (!node) {
+      if (this.root) {
+        node = this.root;
+      } else {
+        return false;
+      }
+    }
+    if (node.right === null) {
+      return node;
+    }
+    return this.max(node.right);
+  }
+
+  next(key) {
+    let node = this.search(null, key);
+    if (node.right !== null) {
+      return this.min(node.right);
+    }
+    let parent = node.parent;
+    while (parent !== null && node === parent.right) {
+      node = parent;
+      parent = parent.parent;
+    }
+    return parent;
+  }
 }
 
 export default BinarySearchTree;
