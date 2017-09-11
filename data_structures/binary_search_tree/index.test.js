@@ -93,33 +93,33 @@ describe('binary search tree', () => {
     });
   });
   describe('next', () => {
-    test('from left branch', () => {
+    test('from left subtree', () => {
       const BST = new BinarySearchTree();
-      BST.insert(null, 1);
-      BST.insert(null, 3);
-      BST.insert(null, 4);
-      BST.insert(null, 6);
       BST.insert(null, 7);
-      BST.insert(null, 9);
+      BST.insert(null, 3);
       BST.insert(null, 10);
+      BST.insert(null, 1);
+      BST.insert(null, 6);
+      BST.insert(null, 9);
+      BST.insert(null, 4);
       const received = BST.next(6);
       const { key } = received;
       expect(BST.isValid(received)).toEqual(true);
       expect(key).toEqual(7);
     });
-    test('from right branch', () => {
+    test('from right subtree', () => {
       const BST = new BinarySearchTree();
-      BST.insert(null, 1);
-      BST.insert(null, 3);
-      BST.insert(null, 4);
-      BST.insert(null, 6);
       BST.insert(null, 7);
-      BST.insert(null, 9);
+      BST.insert(null, 3);
       BST.insert(null, 10);
-      const received = BST.next(9);
+      BST.insert(null, 1);
+      BST.insert(null, 6);
+      BST.insert(null, 9);
+      BST.insert(null, 4);
+      const received = BST.next(7);
       const { key } = received;
       expect(BST.isValid(received)).toEqual(true);
-      expect(key).toEqual(10);
+      expect(key).toEqual(9);
     });
   });
 });
