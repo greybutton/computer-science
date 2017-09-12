@@ -105,6 +105,43 @@ class BinarySearchTree {
     }
     return parent;
   }
+  remove(node, key) {
+    if (!node) {
+      if (this.root) {
+        node = this.root;
+      } else {
+        return false;
+      }
+    }
+    const deleteNode = this.search(null, key);
+    if (node.key > deleteNode.key) {
+      node.left = this.remove(node.left, key);
+      return node;
+    } else if (node.key < deleteNode.key) {
+      node.right = this.remove(node.right, key);
+      return node;
+    } else if (node.left === null || node.right === null) {
+      return this.remove1(node);
+    } else {
+      return this.remove2(node);
+    }
+  }
+
+  remove1(node) {
+    if (node.left === null) {
+      return node.right;
+    }
+    if (node.right === null) {
+      return node.left;
+    }
+  }
+
+  remove2(node) {
+    const min = this.min(node.right);
+    node.right = this.remove(node.right, min.key);
+    node.key = min.key;
+    return node;
+  }
 }
 
 export default BinarySearchTree;
