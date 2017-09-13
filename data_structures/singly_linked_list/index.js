@@ -1,6 +1,6 @@
 class SinglyLinkedList {
-  constructor() {
-    this.head = null;
+  constructor(object) {
+    this.head = object || null;
   }
 
   isEmpty() {
