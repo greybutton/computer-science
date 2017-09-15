@@ -74,4 +74,64 @@ describe('hash table open addressing (closed hashing) linear probing', () => {
       expect(received).toEqual(expected);
     });
   });
+  describe('delete', () => {
+    test('should return NaN', () => {
+      const HT = new HashTable();
+      const received = HT.delete('string');
+      const expected = NaN;
+      expect(received).toEqual(expected);
+    });
+    test('should return null', () => {
+      const HT = new HashTable();
+      const received = HT.delete(33);
+      const expected = null;
+      expect(received).toEqual(expected);
+    });
+    test('is valid', () => {
+      const HT = new HashTable();
+      HT.insert(16);
+      HT.insert(11);
+      HT.insert(27);
+      HT.insert(19);
+      HT.insert(22);
+      HT.insert(6);
+      const received = HT.delete(27);
+      const expected = 27;
+      expect(received).toEqual(expected);
+    });
+    test('repeat number 27 three times should return 29', () => {
+      const HT = new HashTable();
+      HT.insert(16);
+      HT.insert(11);
+      HT.insert(27);
+      HT.insert(27);
+      HT.insert(27);
+      HT.insert(19);
+      HT.insert(22);
+      HT.insert(6);
+      HT.delete(27);
+      HT.delete(27);
+      const received = HT.delete(27);
+      const expected = 29;
+      expect(received).toEqual(expected);
+    });
+  });
+  describe('insert and delete', () => {
+    test('insert 27, delete 27, search 27 should return null', () => {
+      const HT = new HashTable();
+      HT.insert(27);
+      HT.delete(27);
+      const received = HT.search(27);
+      const expected = null;
+      expect(received).toEqual(expected);
+    });
+    test('insert 27, delete 27, insert 27 should return 27', () => {
+      const HT = new HashTable();
+      HT.insert(27);
+      HT.delete(27);
+      const received = HT.insert(27);
+      const expected = 27;
+      expect(received).toEqual(expected);
+    });
+  });
 });

@@ -21,11 +21,18 @@ class HashTable {
     }
     const tableLength = this.table.length;
     let index = 0;
+    let deletedPlace = null;
     do {
       const hash = this.linearProbing(element, index);
       if (this.table[hash] === null) {
+        if (deletedPlace) {
+          this.table[deletedPlace] = element;
+          return deletedPlace;
+        }
         this.table[hash] = element;
         return hash;
+      } else if (this.table[hash] === 'DELETED') {
+        deletedPlace = hash;
       }
       index += 1;
     } while (index !== tableLength);
@@ -47,6 +54,15 @@ class HashTable {
       index += 1;
     } while ((this.table[hash] === null || index !== tableLength) && index < tableLength);
     return null;
+  }
+
+  delete(element) {
+    if (isNaN(element)) {
+      return NaN;
+    }
+    const hash = this.search(element);
+    this.table[hash] = 'DELETED';
+    return hash;
   }
 }
 
